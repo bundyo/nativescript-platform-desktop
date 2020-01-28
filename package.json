@@ -1,0 +1,23 @@
+{
+  "name": "nativescript-platform-desktop",
+  "version": "0.0.1",
+  "main": "index",
+  "description": "",
+  "contributors": [
+    "Bundyo <bundyo@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bundyo/nativescript-platform-desktop.git"
+  },
+  "scripts": {
+    "tsc": "tsc -w"
+  },
+  "devDependencies": {
+    "@nativescript/core": "6.3.2",
+    "@nodegui/nodegui": "0.13.0",
+    "@types/node": "10.17.13",
+    "typescript": "3.7.5"
+  }
+}

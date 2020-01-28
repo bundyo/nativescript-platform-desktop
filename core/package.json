@@ -1,0 +1,26 @@
+{
+  "name": "nativescript-platform-desktop",
+  "main": "index",
+  "types": "index.d.ts",
+  "description": "Telerik NativeScript Desktop Modules",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bundyo/nativescript-desktop"
+  },
+  "files": [
+    "**/*.d.ts",
+    "**/*.js",
+    "**/package.json"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "~10.17.6"
+  },
+  "nativescript": {
+    "platforms": {
+      "ios": "6.0.0",
+      "android": "6.0.0"
+    }
+  }
+}
