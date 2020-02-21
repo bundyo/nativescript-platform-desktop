@@ -17,5 +17,6 @@
       "*": ["./node_modules/*"]
     }
   },
+  "include": ["app/**/*"],
   "exclude": ["node_modules", "platforms"]
 }

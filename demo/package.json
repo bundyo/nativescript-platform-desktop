@@ -12,7 +12,8 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "scripts": {
-    "build": "webpack -p --env.android"
+    "build": "npx webpack --env.platform desktop --watch",
+    "start": "cd platforms/desktop && npm start"
   },
   "dependencies": {
     "@nativescript/core": "6.3.2",
