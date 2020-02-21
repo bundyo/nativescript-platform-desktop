@@ -14,7 +14,7 @@
   "scripts": {
     "tsc": "tsc -w",
     "build": "tsc && npx webpack --env.platform desktop --watch",
-    "start": "cd demo/platforms/desktop && npm start"
+    "start": "cd demo/platforms/desktop && npm start:watch"
   },
   "devDependencies": {
     "husky": "^4.2.1",
