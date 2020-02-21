@@ -1,4 +1,7 @@
-node_modules/
-
-# NodeGUI
+node_modules
 dist/
+*.log
+.vscode
+
+*.js
+*.js.map

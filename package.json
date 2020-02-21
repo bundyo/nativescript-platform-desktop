@@ -12,7 +12,9 @@
     "url": "https://github.com/bundyo/nativescript-platform-desktop.git"
   },
   "scripts": {
-    "tsc": "tsc -w"
+    "tsc": "tsc -w",
+    "build": "tsc && npx webpack --env.platform desktop --watch",
+    "start": "cd demo/platforms/desktop && npm start"
   },
   "devDependencies": {
     "husky": "^4.2.1",
