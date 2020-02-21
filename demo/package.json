@@ -11,6 +11,11 @@
   "description": "NativeScript Application",
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
+  "scripts": {
+    "build": "tsc && npx webpack --env.platform desktop",
+    "start": "concurrently \"tsc -w\" \"npx webpack --env.platform desktop --watch\"",
+    "postinstall": "cd platforms/desktop && npm install"
+  },
   "dependencies": {
     "@nativescript/core": "6.3.2",
     "@nativescript/theme": "2.2.1",
@@ -18,16 +23,17 @@
     "nativescript-platform-desktop": "file:../src"
   },
   "devDependencies": {
-    "nativescript-dev-webpack": "1.5.0-rc-2020-01-30-180259-01",
-    "nativescript-worker-loader": "0.10.0",
-    "@nodegui/nodegui": "^0.13.4",
+    "concurrently": "^5.1.0",
+    "nativescript-dev-webpack": "1.5.0",
+    "nativescript-worker-loader": "0.11.0",
+    "@nodegui/nodegui": "0.13.4",
     "clean-webpack-plugin": "1.0.0",
     "copy-webpack-plugin": "4.6.0",
     "css-loader": "3.2.0",
     "file-loader": "4.2.0",
     "node-loader": "0.6.0",
-    "sass-loader": "8.0.0",
-    "sass": "1.24.3",
+    "sass-loader": "8.0.2",
+    "sass": "1.25.0",
     "webpack": "4.41.6",
     "webpack-bundle-analyzer": "3.6.0",
     "webpack-cli": "3.3.11"

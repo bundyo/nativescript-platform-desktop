@@ -13,14 +13,17 @@
   },
   "scripts": {
     "tsc": "tsc -w",
-    "build": "tsc && npx webpack --env.platform desktop --watch",
-    "start": "cd demo/platforms/desktop && npm start:watch"
+    "build": "tsc && cd demo && npm run build",
+    "build:demo": "cd demo && npm start",
+    "start": "concurrently \"tsc -w\" \"npm run build:demo\" \"cd demo/platforms/desktop && npm run start:watch\"",
+    "postinstall": "cd demo && npm install"
   },
   "devDependencies": {
+    "concurrently": "^5.1.0",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.7",
     "@nativescript/core": "6.3.2",
-    "@nodegui/nodegui": "0.13.0",
+    "@nodegui/nodegui": "0.13.4",
     "prettier": "~1.19.1",
     "@types/node": "10.17.13",
     "typescript": "3.7.5"

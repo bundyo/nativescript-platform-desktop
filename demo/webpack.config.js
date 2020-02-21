@@ -17,11 +17,11 @@ const TerserPlugin = require("terser-webpack-plugin");
 const hashSalt = Date.now().toString();
 
 module.exports = env => {
-  // Add your custom Activities, Services and other Android app components here.
-  const appComponents = env.appComponents || [];
-  appComponents.push(
-    ...["tns-core-modules/ui/frame", "tns-core-modules/ui/frame/activity"]
-  );
+  // Add your custom Activities, Services and other android app components here.
+  const appComponents = [
+    "tns-core-modules/ui/frame",
+    "tns-core-modules/ui/frame/activity"
+  ];
 
   const platform =
     env && ((env.android && "android") || (env.ios && "ios") || env.platform);
@@ -48,7 +48,7 @@ module.exports = env => {
     appPath = "app",
     appResourcesPath = "app/App_Resources",
 
-    // You can provide the following flags when running 'tns run android|ios'
+    // You can provide the following flags when running 'tns run android|ios|desktop'
     snapshot, // --env.snapshot
     production, // --env.production
     uglify, // --env.uglify
@@ -66,7 +66,6 @@ module.exports = env => {
   const useLibs = compileSnapshot;
   const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
   const externals = nsWebpack.getConvertedExternals(env.externals);
-
   const appFullPath = resolve(projectRoot, appPath);
   const hasRootLevelScopedModules = nsWebpack.hasRootLevelScopedModules({
     projectDir: projectRoot
@@ -241,6 +240,7 @@ module.exports = env => {
               loader: "nativescript-dev-webpack/bundle-config-loader",
               options: {
                 loadCss: !snapshot, // load the application css if in debug mode
+                platform: env.platform,
                 unitTesting,
                 appFullPath,
                 projectRoot,
@@ -251,7 +251,20 @@ module.exports = env => {
         },
 
         {
-          test: /\.(ts|css|scss|html|xml)$/,
+          test: /\.node/i,
+          use: [
+            { loader: "node-loader" },
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]"
+              }
+            }
+          ]
+        },
+
+        {
+          test: /\.(ts|js|css|scss|html|xml)$/,
           use: "nativescript-dev-webpack/hmr/hot-loader"
         },
 
@@ -262,14 +275,21 @@ module.exports = env => {
 
         {
           test: /\.css$/,
-          use: "nativescript-dev-webpack/css2json-loader"
+          use: { loader: "css-loader", options: { url: false } }
         },
 
         {
           test: /\.scss$/,
-          use: ["nativescript-dev-webpack/css2json-loader", "sass-loader"]
+          use: [
+            { loader: "css-loader", options: { url: false } },
+            {
+              loader: "sass-loader",
+              options: {
+                implementation: require("sass")
+              }
+            }
+          ]
         },
-
         {
           test: /\.ts$/,
           use: {
@@ -307,6 +327,7 @@ module.exports = env => {
         { ignore: [`${relative(appPath, appResourcesFullPath)}/**`] }
       ),
       new nsWebpack.GenerateNativeScriptEntryPointsPlugin("bundle"),
+
       // For instructions on how to set up workers with webpack
       // check out https://github.com/nativescript/worker-loader
       new NativeScriptWorkerPlugin(),
@@ -345,7 +366,7 @@ module.exports = env => {
     config.plugins.push(
       new nsWebpack.NativeScriptSnapshotPlugin({
         chunk: "vendor",
-        requireModules: ["tns-core-modules/bundle-entry-points"],
+        requireModules: ["nativescript-platform-desktop/bundle-entry-points"],
         projectRoot,
         webpackConfig: config,
         snapshotInDocker,
