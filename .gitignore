@@ -22,6 +22,7 @@ yarn-error.log*
 .project
 tmp/
 typings/
+*.js
 
 # Visual Studio Code
 .vscode/*
@@ -32,3 +33,7 @@ typings/
 
 # Idea based editors
 .idea/*
+
+# DO NOT IGNORE SPECIFICS
+!webpack.config.js
+!demo/platforms/desktop/**

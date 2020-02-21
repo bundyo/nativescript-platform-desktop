@@ -1,1 +1,1 @@
-require("core/bundle-entry-points.desktop");
+require("src/bundle-entry-points.desktop");

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "pretty": false,
+    "removeComments": true,
+    "esModuleInterop": true
+  },
+  "include": ["**/*"]
+}

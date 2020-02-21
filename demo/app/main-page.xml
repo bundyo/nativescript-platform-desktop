@@ -1,0 +1,49 @@
+<!--
+The markup in NativeScript apps contains a series of user interface components, each
+of which NativeScript renders with a platform-specific iOS or Android native control.
+You can find a full list of user interface components you can use in your app at
+https://docs.nativescript.org/ui/components.
+-->
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:app="/details-page" navigatingTo="onNavigatingTo" class="page">
+    <!--
+    The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
+    http://docs.nativescript.org/ui/action-bar
+    -->
+    <ActionBar title="My App">
+        <ActionItem>
+            <Button text="Buttons" tap="{{ toButtons }}" />
+        </ActionItem>
+    </ActionBar>
+    <!--
+    The StackLayout stacks UI components on the screen—either vertically or horizontally.
+    In this case, the StackLayout does vertical stacking; you can change the stacking to
+    horizontal by applying a orientation="horizontal" attribute to the <StackLayout> element.
+    You can learn more about NativeScript layouts at
+    https://docs.nativescript.org/ui/layout-containers.
+
+    These components make use of several CSS class names that are part of the NativeScript
+    core theme, such as p-20, btn, h2, and text-center. You can view a full list of the
+    class names available for styling your app at https://docs.nativescript.org/ui/theme.
+    -->
+    <ScrollView>
+        <StackLayout class="p-20">
+            <StackLayout orientation="horizontal" class="p-20" style="background-color: red">
+                <Label text="Tap the button" class="h1 text-center"/>
+                <Button text="TAP" tap="{{ onTap }}" class="-primary"/>
+                <Label text="{{ message }}" class="h2 text-center" textWrap="true"/>
+            </StackLayout>
+            <Progress maxValue="200" value="50"/>
+            <Label text="Tap the button" class="h1 text-center"/>
+            <Button text="TAP" tap="{{ onTap }}"/>
+            <Label text="{{ message }}" class="h2 text-center" textWrap="true"/>
+            <Repeater items="{{ items }}">
+                <Repeater.itemTemplate>
+                    <Button text="Test" class="detail-title"/>
+                    <!--                        <app:details-view title="{{ title }}" info="{{ info }}"/>-->
+                </Repeater.itemTemplate>
+            </Repeater>
+            <Label text="------------" class="h2 text-center" textWrap="true"/>
+        </StackLayout>
+    </ScrollView>
+</Page>

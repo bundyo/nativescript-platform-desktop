@@ -1,0 +1,5 @@
+<StackLayout orientation="horizontal" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" loaded="loaded">
+    <Label text="{{ title }}" class="detail-title"/>
+    <Label text="{{ info }}" class="info" textWrap="true"/>
+</StackLayout>

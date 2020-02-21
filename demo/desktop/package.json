@@ -1,0 +1,27 @@
+{
+  "name": "nodegui-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Atul R <atulanand94@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack -p",
+    "start": "webpack && qode ./dist/index.js",
+    "debug": "webpack && qode --inspect ./dist/index.js",
+    "start:watch": "nodemon -e js,ts --ignore dist/ --ignore node_modules/ --exec npm start"
+  },
+  "dependencies": {
+    "@nodegui/nodegui": "^0.13.4"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "file-loader": "^5.1.0",
+    "native-addon-loader": "^2.0.1",
+    "nodemon": "^2.0.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}
