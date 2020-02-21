@@ -15,9 +15,23 @@
     "tsc": "tsc -w"
   },
   "devDependencies": {
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
     "@nativescript/core": "6.3.2",
     "@nodegui/nodegui": "0.13.0",
+    "prettier": "~1.19.1",
     "@types/node": "10.17.13",
     "typescript": "3.7.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js, css, ts, json, scss, html, xml, md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
