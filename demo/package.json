@@ -19,7 +19,6 @@
   "dependencies": {
     "@nativescript/core": "6.3.2",
     "@nativescript/theme": "2.2.1",
-    "tns-core-modules": "6.3.2",
     "nativescript-platform-desktop": "file:../src"
   },
   "devDependencies": {
@@ -38,6 +37,5 @@
     "webpack-bundle-analyzer": "3.6.0",
     "webpack-cli": "3.3.11"
   },
-  "gitHead": "1964ea9e8ca1a0518e0d6370781eedcf6c23db42",
   "readme": "NativeScript Application"
 }

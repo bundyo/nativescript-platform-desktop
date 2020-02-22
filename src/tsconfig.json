@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "noEmitOnError": false,
-    "noEmitHelpers": true,
     "target": "es5",
     "module": "commonjs",
-    "declaration": false,
+    "declaration": true,
+    "noEmitOnError": false,
+    "noEmitHelpers": true,
     "noImplicitAny": false,
     "noImplicitUseStrict": true,
     "removeComments": true,
@@ -15,7 +15,7 @@
     "types": ["node", "@nativescript/core"],
     "baseUrl": ".",
     "paths": {
-      "@nativescript/core/*": ["core/*"]
+      "@nativescript/core/*": ["src/*"]
     }
   },
   "include": ["**/*.ts"]

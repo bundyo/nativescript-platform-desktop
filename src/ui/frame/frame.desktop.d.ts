@@ -1,0 +1,34 @@
+import { BackstackEntry, NavigationTransition } from "@nativescript/core/ui/frame";
+import { FrameBase, NavigationType, View } from "@nativescript/core/ui/frame/frame-common";
+import { Page } from "@nativescript/core/ui/page";
+import { QStackedWidget } from "@nodegui/nodegui";
+export * from "@nativescript/core/ui/frame/frame-common";
+export declare class Frame extends FrameBase {
+    _desktop: QStackedWidget;
+    navBarVisibility: "auto" | "never" | "always";
+    private _title;
+    private _disableNavBarAnimation;
+    constructor();
+    get title(): string;
+    set title(title: string);
+    show(): void;
+    hide(): void;
+    setMenuBar(menuBar: any): void;
+    setMenuWidget(menuWidget: any): void;
+    createNativeView(): QStackedWidget;
+    disposeNativeView(): void;
+    get desktop(): any;
+    setCurrent(entry: BackstackEntry, navigationType: NavigationType): void;
+    _createPage(entry: any): any;
+    _navigateCore(backstackEntry: BackstackEntry): void;
+    _goBackCore(backstackEntry: BackstackEntry): void;
+    _updateActionBar(page?: Page, disableNavBarAnimation?: boolean): void;
+    _getNavBarVisible(page: Page): boolean;
+    static get defaultAnimatedNavigation(): boolean;
+    static set defaultAnimatedNavigation(value: boolean);
+    static get defaultTransition(): NavigationTransition;
+    static set defaultTransition(value: NavigationTransition);
+    onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void;
+    layoutNativeView(left: number, top: number, right: number, bottom: number): void;
+    _setNativeViewFrame(nativeView: View, frame: any): void;
+}

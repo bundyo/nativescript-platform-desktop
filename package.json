@@ -16,7 +16,9 @@
     "build": "tsc && cd demo && npm run build",
     "build:demo": "cd demo && npm start",
     "start": "concurrently \"tsc -w\" \"npm run build:demo\" \"cd demo/platforms/desktop && npm run start:watch\"",
-    "postinstall": "cd demo && npm install"
+    "postinstall": "npm run setup.src && npm run setup.demo",
+    "setup.demo": "cd demo && npm i && tsc",
+    "setup.src": "cd src && npm i && tsc"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
